@@ -50,7 +50,7 @@ void task2()
 
         // Checking the condition: an element is a multiple of its index + 1
         if (numbers[i] % (i + 1) == 0) {
-            // Вставляем новый элемент 
+            // Inserting a new element
             result.push_back(numbers[i] + 1);
         }
     }
