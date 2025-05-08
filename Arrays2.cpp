@@ -1,26 +1,42 @@
-// homework 11.
+// Homework 11.
 #include <iostream>
 #include <algorithm>
 #include <vector>
 
-// //Task 1. A sequence of integers is given.
-// //12. Count the number of maximum elements.
+////Task 1. A sequence of integers is given.
+////12. Count the number of maximum elements.
 
-void task1() {
-    int size, k;
-    std::cout << "Enter an array size:\n";
+void task1()
+{
+
+    // Creating a new vector for storing numbers
+    std::vector<int> numbers;
+
+    // Getting the size of the vector from the user
+    int size;
+    std::cout << "Enter the array size: ";
     std::cin >> size;
 
-    int* arr = new int[size];
-    std::cout << "Enter an array:\n";
+    // Filling the vector with values
+    std::cout << "Enter the numbers:" << std::endl;
     for (int i = 0; i < size; i++) {
-        std::cin >> arr[i];
+        int value;
+        std::cout << "Element [" << i << "]: ";
+        std::cin >> value;
+        numbers.push_back(value);
     }
 
-    auto max = std::max_element(arr, arr + size);
-    k = std::count_if(arr, arr + size, [&](int i) { return i == *max; });
-    std::cout << "The number of the maximum elements: " << k << std::endl;
-    delete[] arr;
+    // Finding the maximum element
+    //Using the max_element algorithm to find the maximum value
+    auto max_element = std::max_element(numbers.begin(), numbers.end());
+
+    // Calculating the number of maximum elements
+    // Using the count algorithm to count the number of maximum elements
+    int max_count = std::count(numbers.begin(), numbers.end(), *max_element);
+
+    // Displaying the result
+    std::cout << "Maximum value: " << *max_element << std::endl;
+    std::cout << "Number of maximum elements: " << max_count << std::endl;
 
 }
 
@@ -30,8 +46,22 @@ void task1() {
 void task2()
 {
 
-    // Creating a vector with the original data
-    std::vector<int> numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    // Creating a new vector for storing numbers
+    std::vector<int> numbers;
+
+    // Getting the size of the vector from the user
+    int size;
+    std::cout << "Enter the array size: ";
+    std::cin >> size;
+
+    // Filling the vector with values
+    std::cout << "Enter the numbers:" << std::endl;
+    for (size_t i = 0; i < size; i++) {
+        int value;
+        std::cout << "Element [" << i << "]: ";
+        std::cin >> value;
+        numbers.push_back(value);
+    }
 
     // Output the original vector
     std::cout << "Source vector: [ ";
